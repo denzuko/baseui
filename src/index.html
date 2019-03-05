@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PWA Style guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/materia/bulmaswatch.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://unpkg.com/requirejs@2.3.6/require.js" data-main="app"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/bulmaswatch/assets/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/bulmaswatch/assets/icons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/bulmaswatch/assets/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/bulmaswatch/assets/icons/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="Bulmaswatch - Free themes for Bulma - A modern CSS framework based on Flexbox"/>
+    <meta name="theme-color" content="#34495e">
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/bulmaswatch/assets/icons/mstile-144x144.png" />
+    <meta property="og:title" content="Bulmaswatch">
+    <meta property="og:description" content="Free themes for Bulma - A modern CSS framework based on Flexbox">
+    <meta property="og:image" content="https://jenil.github.io/bulmaswatch/assets/bulmaswatch-banner.png">
+    <meta property="og:url" content="https://jenil.github.io/bulmaswatch">
+    <meta name="twitter:site" content="@jgog">
+    <meta name="twitter:card" content="summary_large_image">
+    
+  </head>
+  <body>
+    <nav class="navbar is-primary">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#" style="font-weight:bold;">
+            Dwight Spencer
+          </a>
+          <span class="navbar-burger burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="#" class="navbar-item is-active">Home</a>
+            <a href="#" class="navbar-item">Blog</a>
+            <a href="#" class="navbar-item">Forum</a>
+            <a href="#" class="navbar-item">Shop</a>
+            <a href="#" class="navbar-item">Examples</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <main id='app' class='content columns'>
+      <tasks></tasks>
+    </main>
+    
+    <footer>
+      <script type="text/javascript">
+        (function() {
+          var burger = document.querySelector('.burger');
+          var nav = document.querySelector('#'+burger.dataset.target);
+          
+          burger.addEventListener('click', () => {
+            burger.classList.toggle('is-active');
+            nav.classList.toggle('is-active');
+          });
+        })();
+      </script>
+      <script id='tasks' type="text/x-template">
+      <ul>
+    	  <li v-for='todo in todos' class='column'>
+        <input
+            type="checkbox"
+            v-on:change="toggle(todo)"
+            v-bind:checked="todo.completed">
+      	  <span v-if='todo.completed' class="tag is-success icon">
+            <i class="fas fa-check"></i>
+          </span>
+          <span v-else class="tag is-info icon">
+            <i class='fas fa-square-o'></i>
+          </span>
+        </input>
+      	{{ todo.title }}
+        </li>
+  	  </ul>
+    </script>
+    <script id='notFound' type="text/x-template">
+      <h1>Not found</h1>
+    </script>
+    </footer>
+  </body>
+</html>
