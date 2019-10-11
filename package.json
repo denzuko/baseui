@@ -1,0 +1,93 @@
+{
+  "name": "baseui",
+  "description": "DDC Service manager with touching operation in the mobile.",
+  "version": "2.1.2",
+  "author": "dwightaspencer.com",
+  "contributors": [
+    "Dwight Spencer <vcc@dallasmakerspace.org"
+  ],
+  "main": "src/main.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --mode production",
+    "start": "watchmedo auto-restart -d . -p '*.json,*.css;*.scss;*.vue;*.js;*.sass' ./node_modules/.bin/webpack-dev-server",
+    "prepub": "./node_modules/babel index.js --out-file index.min.js && ,/node-modules/uglifyjs index.min.js -o index.min.js",
+    "prepare": "docker build -t $IMAGE_NAME:$IMAGE_TAG .",
+    "publish": "docker manifest create ddc-service-manager:latest $IMAGE_NAME:$IMAGE_TAG",
+    "prepublishOnly": "docker login; docker image push ddc-service-manager:latest",
+    "predaemon": "npm run prepare",
+    "daemon": "docker run -ti -p 7890:8043/tcp $IMAGE_NAME:$IMAGE_TAG",
+    "postdaemon": "docker system prune -af"
+  },
+  "config": {
+    "site": {
+      "title": "BaseUI Template (edit me)"
+    },
+    "appcache": {
+      "fallback": [
+        "offline.apng"
+      ],
+      "settings": [
+        "prefer-online"
+      ],
+      "output": "manifest.appcache",
+      "network": null
+    },
+    "webpack": {
+      "output": "app.min.js"
+    }
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.3",
+    "vue-material": "^1.0.0-beta-11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.3",
+    "@babel/core": "^7.6.3",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "appcache-webpack-plugin": "^1.4.0",
+    "axios": "^0.19.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "deepmerge": "^4.1.1",
+    "fibers": "^4.0.1",
+    "hammerjs": "^2.0.8",
+    "html-webpack-plugin": "^3.2.0",
+    "inline-manifest-webpack-plugin": "^4.0.2",
+    "robotstxt-webpack-plugin": "^6.0.0",
+    "sass": "^1.23.0",
+    "sass-loader": "^8.0.0",
+    "sitemap-webpack-plugin": "^0.6.0",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "url-loader": "^2.2.0",
+    "file-loader": "^4.2.0",
+    "vue": "^2.4.2",
+    "vue-loader": "^15.3.0",
+    "vue-style-loader": "^4.1.1",
+    "vue-template-compiler": "^2.4.2",
+    "vue2-hammer": "^1.0.7",
+    "vuetify": "^2.1.2",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.8.2",
+    "webpack-html-plugin": "^0.1.1",
+    "webpack-pwa-manifest": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/denzuko/baseui"
+  },
+  "keywords": [
+    "vue2-hammer",
+    "vuejs",
+    "axeos",
+    "cookiecutter"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/denzuko/baseui/issues"
+  },
+  "homepage": "https://github.com/denzuko/baseui#readme"
+}
