@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html  lang="en"  manifest="manifest.appcache">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <title>PWA Style guide</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900,400italic|Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/materia/bulmaswatch.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -24,7 +25,9 @@
     <meta property="og:url" content="https://jenil.github.io/bulmaswatch">
     <meta name="twitter:site" content="@jgog">
     <meta name="twitter:card" content="summary_large_image">
-    
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=https://en.wikipedia.org/wiki/JavaScript">
+    </noscript>
   </head>
   <body>
     <nav class="navbar is-primary">
@@ -89,5 +92,7 @@
       <h1>Not found</h1>
     </script>
     </footer>
+    <div id="app"></div>
+
   </body>
 </html>
