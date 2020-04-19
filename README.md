@@ -3,6 +3,14 @@ Rapid PWA development framework. Uses VueJS, Hammerjs, Vuex, Vuerouter, Bulma/MD
 
 API Trasport is provided by Axios and a SQL interface to data is provided by alasql (yes we have SQL query supports to REST in a frontend that's *NOT* GraphQL or dependant on the data source)
 
+## Concept
+Developing a frontend application should not mean learning new ecosystems, libraries, or extra tools to produce a product. This was the success behind jQuery, it emplowered developers to build better javascript applications. Now that most of the features from jQuery are core ES8 one should be able to translate that same experence into the future of reactive progressive apps. Thus the use of VueJS and this framework.
+
+The end proccess is to allow individual developers to rapidly develop a full product that then can be put on any hosting system be it a CDN, docker cluster, ipfs or what ever. While still being lightwieght in choices to the developer nor heavily "optiniionated".
+
+If one needs sql there is AlaSQL to manipulate data in ram. If one needs GraphQL then defind that as your API class and use that instead of Axios
+
+At the end of the day the tools should not be in the way to deliver a product and developers should be able to leverage existing skills that copmpliment both Unix Philosphy and 12 factor. That is the core philosophy behind [BaseUI](https://github.com/denzuko/baseui/blob/master/README.md) and the Companions [BaseAPI](https://github.com/denzuko/baseapi/blob/master/README.md) / [CommunityGrid](https://github.com/Dallas-Makerspace/CommunityGrid/blob/master/README.md).
 
 ## Usage
 
